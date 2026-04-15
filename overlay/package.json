@@ -1,0 +1,14 @@
+{
+  "name": "api-usage-topbar-overlay",
+  "version": "0.0.1",
+  "private": true,
+  "main": "main.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "electron .",
+    "build": "echo 'TODO: wire electron-builder' && exit 0"
+  },
+  "dependencies": {
+    "electron": "^30.0.0"
+  }
+}

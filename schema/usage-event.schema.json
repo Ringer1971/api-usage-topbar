@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ApiUsageTopbar Usage Event",
+  "type": "object",
+  "required": ["ts", "provider", "model"],
+  "properties": {
+    "ts": {
+      "description": "Unix epoch milliseconds",
+      "type": "integer",
+      "minimum": 0
+    },
+    "provider": {
+      "type": "string",
+      "enum": ["openai", "anthropic", "other"]
+    },
+    "model": { "type": "string" },
+
+    "inputTokens": { "type": "integer", "minimum": 0 },
+    "outputTokens": { "type": "integer", "minimum": 0 },
+
+    "costUsd": {
+      "description": "If you already know cost, log it here. Overlay will prefer this over pricing estimation.",
+      "type": "number",
+      "minimum": 0
+    },
+
+    "requestId": { "type": "string" },
+    "app": { "type": "string" },
+    "meta": { "type": "object", "additionalProperties": true }
+  },
+  "additionalProperties": false
+}
