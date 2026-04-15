@@ -2,15 +2,11 @@ const { app, BrowserWindow, screen } = require('electron');
 const path = require('path');
 
 function createWindow() {
-  // Get all displays to calculate total width
-  const displays = screen.getAllDisplays();
-  const totalWidth = displays.reduce((sum, d) => sum + d.bounds.width, 0);
-  const leftmostX = Math.min(...displays.map(d => d.bounds.x));
-  
-  // Make it smaller and centered
+  // Get primary display and center on it
+  const display = screen.getPrimaryDisplay();
   const width = 400;
   const height = 32;
-  const x = leftmostX + (totalWidth - width) / 2;
+  const x = display.bounds.x + (display.bounds.width - width) / 2;
 
   const win = new BrowserWindow({
     width,
